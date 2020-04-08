@@ -23,3 +23,9 @@ $slick-loader-path: "/assets/fonts/";
 
 @import "../../../node_modules/slick-carousel/slick/slick.scss";
 @import "../../../node_modules/slick-carousel/slick/slick-theme.scss";
+
+#newsletter input::placeholder ,
+#contato input::placeholder
+{
+    color: $basaltic-grey
+}
