@@ -1,5 +1,5 @@
 'use strict';
-const {src, dest, watch, series, parallel } = require('gulp');
+const {src, dest, watch, series, parallel, task } = require('gulp');
 const log = require('fancy-log');
 const colors = require('ansi-colors');
 const browserSync = require('browser-sync').create();
@@ -25,6 +25,7 @@ const accessibility = require('gulp-accessibility');
 const babel = require('gulp-babel');
 const nodepath = 'node_modules/';
 const assetspath = 'assets/';
+const ghPages = require('gulp-gh-pages');
 
 // File paths
 const files = {
@@ -38,6 +39,14 @@ function setupBulma() {
   console.log('---------------COPYING BULMA FILES---------------');
   return src([nodepath + 'bulma/*.sass', nodepath + 'bulma/**/*.sass'])
     .pipe(dest('src/assets/sass/'));
+}
+
+//DEPLOY
+
+function deployGh() {
+  console.log('---------------DEPLOY SITE GHPAGES---------------');
+  return src(['./dist/**/*'])
+    .pipe(ghPages());
 }
 
 // ------------ DEVELOPMENT TASKS -------------
@@ -300,6 +309,9 @@ exports.accessibility = HTMLAccessibility;
 //SETUP
 exports.setup = series(setupBulma);
 
+
 // DEV
 exports.dev = series(cleanDist, copyFont, copyData, jsVendor, cssVendor, copyImages, compileHTML, concatPlugins, concatCssPlugins, compileJS, resetPages, prettyHTML, compileSASS, compileSCSS, browserSyncInit, watchFiles);
 
+//DEPLOY
+exports.deploy = series(deployGh);
