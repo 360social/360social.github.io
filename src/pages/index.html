@@ -1,0 +1,86 @@
+---
+layout: default
+title: Landing Page
+---
+
+<section class="hero is-fullheight is-default is-bold">
+
+    {{> navbar}}
+
+    {{> navbar-clone}}
+
+    <div id="newsletter" class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <form action="{{root}}" class="columns" style="width:100%">
+                <div class="column is-5 is-offset-1 landing-caption">
+                    <h1 class="title is-1 is-bold is-spaced">
+                        Soluções sociais para seu Escritório
+                    </h1>
+                    <h2 class="subtitle is-5 is-muted"> Assine nossa newsletter e receba novidades </h2>
+                    <div class="is-horizontal field column">
+                        <div class="control column is-6">
+                            <input class="input is-medium is-rounded " type="text" required name="email"  placeholder="E-mail ">
+                        </div>
+                        <div class="control column is-6">
+                            <input class="input is-medium is-rounded " type="text" required  name="mobile"  placeholder="What's App ">
+                        </div>
+                        <div class="button-wrap control column is-2">
+                            <a class="button cta is-rounded primary-btn raised">
+                                Quero receber!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4 is-offset-2">
+                    <figure class="image is-4by3">
+                        <img src="assets/img/illustrations/worker.svg" alt="Description">
+                    </figure>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="contato" class="section section-light-grey is-medium">
+    <div class="container">
+        <div class="title-wrapper has-text-centered">
+            <h2 class="title is-2 is-spaced"> Entre em contato </h2>
+            <h3 class="subtitle is-5 is-muted"> Enquanto você espera, pode nos contatar, teremos prazer em tirar suas dúvidas</h3>
+            <div class="divider is-centered"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="columns">
+                <div class="column is-6 is-offset-3">
+                    <form action="{{root}}">
+                        <div class="columns is-multiline">
+                            <div class="column is-6">
+                                <input class="input is-medium" type="text" name="name" required placeholder="Nome *">
+                            </div>
+                            <div class="column is-6">
+                                <input class="input is-medium" type="text" name="surname" placeholder="Sobrenome">
+                            </div>
+                            <div class="column is-6">
+                                <input class="input is-medium" type="text" required name="email"  placeholder="E-mail ">
+                            </div>
+                            <div class="column is-6">
+                                <input class="input is-medium" type="text" required  name="mobile"  placeholder="What's App ">
+                            </div>
+                            <div class="column is-12">
+                                <textarea class="textarea" rows="6" placeholder=""  name="message"></textarea>
+                            </div>
+                            <div class="column is-12">
+                                <div class="form-footer has-text-right mt-10">
+                                    <button class="button cta is-large primary-btn form-button raised is-clear">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
