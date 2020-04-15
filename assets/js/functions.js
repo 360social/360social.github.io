@@ -1,5 +1,56 @@
 "use strict";
 
+// const serviceUrl = "https://360social.com.br/api/v1"
+const serviceUrl = "http://localhost:8080/api/v1"
+
+const init = { method: 'POST',
+                 headers:  new Headers(),
+                 mode: 'cors',
+                 cache: 'default' };
+
+document.querySelector('#subscribe').addEventListener("submit", function(e){
+    e.preventDefault();
+	fetch(serviceUrl+"/newsletter/subscribe", init)
+		.then(function(response) {
+		  if(response.ok) {
+			response.blob().then(function(myBlob) {
+			  var objectURL = URL.createObjectURL(myBlob);
+			  myImage.src = objectURL;
+			});
+		  } else {
+			console.log('Network response was not ok.');
+		  }
+		  return response.blob();
+		})
+		.catch(function(error) {
+		  console.log('There has been a problem with your fetch operation: ' + error.message);
+		});
+});
+
+
+
+document.querySelector('#contact').addEventListener("submit", function(e){
+    e.preventDefault();
+	fetch(serviceUrl+"/contact", init)
+		.then(function(response) {
+		  if(response.ok) {
+			response.blob().then(function(myBlob) {
+			  var objectURL = URL.createObjectURL(myBlob);
+			  myImage.src = objectURL;
+			});
+		  } else {
+			console.log('Network response was not ok.');
+		  }
+		  return response.blob();
+		})
+		.catch(function(error) {
+		  console.log('There has been a problem with your fetch operation: ' + error.message);
+		});
+});
+
+
+'subscribe'
+
 function initPreloader() {
   $(window).on('load', function () {
     // makes sure the whole site is loaded
