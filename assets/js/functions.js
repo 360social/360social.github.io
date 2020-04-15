@@ -15,7 +15,6 @@ document.querySelector('#subscribe').addEventListener("submit", function(e){
 		  if(response.ok) {
 			response.blob().then(function(myBlob) {
 			  var objectURL = URL.createObjectURL(myBlob);
-			  myImage.src = objectURL;
 			});
 		  } else {
 			console.log('Network response was not ok.');
@@ -36,7 +35,6 @@ document.querySelector('#contact').addEventListener("submit", function(e){
 		  if(response.ok) {
 			response.blob().then(function(myBlob) {
 			  var objectURL = URL.createObjectURL(myBlob);
-			  myImage.src = objectURL;
 			});
 		  } else {
 			console.log('Network response was not ok.');
