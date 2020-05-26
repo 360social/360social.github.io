@@ -1,7 +1,7 @@
 "use strict";
 
-// const serviceUrl = "https://360social.com.br/api/v1"
-const serviceUrl = "http://localhost:8080/api/v1"
+const serviceUrl = "http://app.360social.com.br/api/v1"
+//const serviceUrl = "http://localhost:8080/api/v1"
 
 const init = { method: 'POST',
                  headers:  new Headers(),
@@ -9,7 +9,10 @@ const init = { method: 'POST',
                  cache: 'default' };
 
 document.querySelector('#subscribe').addEventListener("submit", function(e){
-    e.preventDefault();
+        e.preventDefault();
+        let formData = new FormData(document.querySelector("#subscribe"));
+	init.body =  formData;
+
 	fetch(serviceUrl+"/newsletter/subscribe", init)
 		.then(function(response) {
 		  if(response.ok) {
@@ -30,6 +33,10 @@ document.querySelector('#subscribe').addEventListener("submit", function(e){
 
 document.querySelector('#contact').addEventListener("submit", function(e){
     e.preventDefault();
+	
+        let formData = new FormData(document.querySelector("#contact"));
+	init.body =  formData;
+
 	fetch(serviceUrl+"/contact", init)
 		.then(function(response) {
 		  if(response.ok) {
