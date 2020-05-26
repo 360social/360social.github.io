@@ -16,9 +16,7 @@ document.querySelector('#subscribe').addEventListener("submit", function(e){
 	fetch(serviceUrl+"/newsletter/subscribe", init)
 		.then(function(response) {
 		  if(response.ok) {
-			response.blob().then(function(myBlob) {
-			  var objectURL = URL.createObjectURL(myBlob);
-			});
+			alert('Obrigado por se Registrar!');
 		  } else {
 			console.log('Network response was not ok.');
 		  }
@@ -40,9 +38,7 @@ document.querySelector('#contact').addEventListener("submit", function(e){
 	fetch(serviceUrl+"/contact", init)
 		.then(function(response) {
 		  if(response.ok) {
-			response.blob().then(function(myBlob) {
-			  var objectURL = URL.createObjectURL(myBlob);
-			});
+			alert('Obrigado pelo seu contato!');
 		  } else {
 			console.log('Network response was not ok.');
 		  }
